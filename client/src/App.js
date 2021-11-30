@@ -10,15 +10,15 @@ class App extends Component {
   componentDidMount = async () => {
     try {
       // Get network provider and web3 instance.
-      const web3 = await getWeb3();
+      const Web3 = await getWeb3();
 
       // Use web3 to get the user's accounts.
-      const accounts = await web3.eth.getAccounts();
+      const accounts = await Web3.eth.getAccounts();
 
       // Get the contract instance.
-      const networkId = await web3.eth.net.getId();
+      const networkId = await Web3.eth.net.getId();
       const deployedNetwork = SimpleStorageContract.networks[networkId];
-      const instance = new web3.eth.Contract(
+      const instance = new Web3.eth.Contract(
         SimpleStorageContract.abi,
         deployedNetwork && deployedNetwork.address,
       );
